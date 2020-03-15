@@ -37,7 +37,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "proxyConfig": "./proxy.conf.json",
+
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -65,7 +65,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "contribute:build"
+            "browserTarget": "contribute:build",
+            "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
             "production": {
