@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header repo-header">
-  <div>Coronavirus confirmed in Finland: {{ confirmedNumber }} </div>
+  <div>芬兰新冠状病毒确诊人数: {{ confirmedNumber }} </div>
   <span class="nav-tool-items">
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
@@ -12,8 +12,8 @@
                [fixedTopGap]>
     <mat-nav-list>
 
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Pohjanmaa')">Oulu</button></div>
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('HUS')">Helsinki</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Pohjanmaa')">奥卢</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('HUS')">赫尔辛基</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Lappi')">Lappi</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kanta-Häme')">Kanta-Häme</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pirkanmaa')">Pirkanmaa</button></div>

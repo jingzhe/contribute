@@ -1,5 +1,5 @@
-<p *ngIf="displayData.confirmedCount <= 0" class="no-data">There is no confirmed patient!</p>
-<div *ngIf="displayData.confirmedCount > 0" class="contributor">There are {{displayData.confirmedCount}} confirmed patients in {{displayData.districtName}} all together.</div>
+<p *ngIf="displayData.confirmedCount <= 0" class="no-data">此地没有病例!</p>
+<div *ngIf="displayData.confirmedCount > 0" class="contributor">{{displayData.districtName}} 一共有 {{displayData.confirmedCount}} 个确诊病例.</div>
 
 <div class="container" *ngIf="displayData.confirmedCountries.length > 0">
 
@@ -22,8 +22,8 @@
                    showFirstLastButtons></mat-paginator>
   </div>
 
-  <div class="contributor">The previous update is {{displayData.lastDay.date}}, new confirmed patients are {{displayData.lastDay.count}}</div>
-  <div class="contributor">The details information in previous update:</div>
+  <div class="contributor">上次更新日期 {{displayData.lastDay.date}}, 新确诊 {{displayData.lastDay.count}}</div>
+  <div class="contributor">详细信息如下:</div>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="lastDataSource">
       <ng-container matColumnDef="name">
