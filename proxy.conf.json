@@ -1,0 +1,7 @@
+{
+    "/prod/finnishCoronaData": {
+        "target": "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

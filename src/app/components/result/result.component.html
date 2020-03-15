@@ -1,0 +1,46 @@
+<p *ngIf="displayData.confirmedCount <= 0" class="no-data">There is no confirmed patient!</p>
+<div *ngIf="displayData.confirmedCount > 0" class="contributor">There are {{displayData.confirmedCount}} confirmed patients in {{displayData.districtName}}</div>
+<div class="contributor">The previous update is {{displayData.lastDay.date}}, new confirmed patients are {{displayData.lastDay.count}}</div>
+<div class="container" *ngIf="displayData.confirmedCountries.length > 0">
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Source Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <p>ddfdf</p>
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef> Count </th>
+        <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 20]"
+                   showFirstLastButtons></mat-paginator>
+  </div>
+
+
+  <div class="contributor">The details information in previous update {{displayData.lastDayInfo.date}}</div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="lastDataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Source Country in last time </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <p>ddfdf</p>
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef> Count in last time</th>
+        <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="displayData.pandemic" class="contributor">The infection happened in Finland or unknown places, it means pandemic in {{displayData.districtName}}</div>
+
