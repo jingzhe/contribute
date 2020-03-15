@@ -1,2 +1,2 @@
 # contribute
-Coronavirus information in Finland
+Coronavirus information in Finland.
