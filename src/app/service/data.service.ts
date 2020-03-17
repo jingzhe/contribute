@@ -138,6 +138,7 @@ export class DataService {
       dayInfo.date = key;
       this.currentDisplayData.dayInfoArray.push(dayInfo);
     }
+    this.currentDisplayData.dayInfoArray.reverse();
 
     this.updatedSource.next(district);
     return of(this.currentDisplayData);
