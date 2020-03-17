@@ -20,7 +20,7 @@ export class DisplayData {
   pandemic: boolean;
   dateDetailsMap = {};
   lastDay: DayData;
-  lastDayInfo: DayInfo;
+  dayInfoArray: DayInfo[] = [];
 }
 
 export class CountryData {

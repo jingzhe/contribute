@@ -13,7 +13,7 @@ export class ResultComponent implements OnInit {
 
   displayData: DisplayData;
   dataSource: MatTableDataSource<CountryData>;
-  lastDataSource: MatTableDataSource<CountryData>;
+  dayDataSourceArray: MatTableDataSource<CountryData>[] = [];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'count'];
 
@@ -31,12 +31,16 @@ export class ResultComponent implements OnInit {
   }
 
   update() {
+    this.dayDataSourceArray = [];
     this.displayData = this.dataService.currentDisplayData;
     if (!this.displayData) {
       return;
     }
     this.dataSource = new MatTableDataSource<CountryData>(this.displayData.confirmedCountries);
-    this.lastDataSource = new MatTableDataSource<CountryData>(this.displayData.lastDayInfo.confirmedCountries);
+    for (let i = 0; i < this.displayData.dayInfoArray.length; i++) {
+      let dayDataSource = new MatTableDataSource<CountryData> (this.displayData.dayInfoArray[i].confirmedCountries);
+      this.dayDataSourceArray.push(dayDataSource);
+    }
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
     }, 0);

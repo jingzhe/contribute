@@ -14,6 +14,8 @@ export class DataService {
   wholeDataMap: any = {};
   currentDisplayData: DisplayData;
   confirmedNumber: number;
+  recoveredNumber: number;
+  deathNumber: number;
 
   updatedSource = new BehaviorSubject('');
 
@@ -26,7 +28,11 @@ export class DataService {
           let testData: unknown = res;
           let wholeData: WholeData = testData as WholeData;
           this.confirmedNumber = wholeData.confirmed.length;
+          this.recoveredNumber = wholeData.recovered.length;
+          this.deathNumber = wholeData.deaths.length;
           this.convertConfirmed2Map(wholeData.confirmed);
+          this.convertRecovered2Map(wholeData.recovered);
+          this.convertDeaths2Map(wholeData.deaths);
           }),
         catchError(this.errorMgmt)
     );
@@ -39,6 +45,24 @@ export class DataService {
         this.wholeDataMap[patientData.healthCareDistrict] = new WholeData;
       }
       this.wholeDataMap[patientData.healthCareDistrict].confirmed.push(patientData);
+    }
+  }
+  convertRecovered2Map(dataArray: PatientData[]) {
+    for (let i = 0; i < dataArray.length; i++) {
+      let patientData = dataArray[i];
+      if (this.wholeDataMap[patientData.healthCareDistrict] === undefined) {
+        this.wholeDataMap[patientData.healthCareDistrict] = new WholeData;
+      }
+      this.wholeDataMap[patientData.healthCareDistrict].recovered.push(patientData);
+    }
+  }
+  convertDeaths2Map(dataArray: PatientData[]) {
+    for (let i = 0; i < dataArray.length; i++) {
+      let patientData = dataArray[i];
+      if (this.wholeDataMap[patientData.healthCareDistrict] === undefined) {
+        this.wholeDataMap[patientData.healthCareDistrict] = new WholeData;
+      }
+      this.wholeDataMap[patientData.healthCareDistrict].deaths.push(patientData);
     }
   }
 
@@ -95,20 +119,25 @@ export class DataService {
     if (countryMap['FIN'] > 0 || countryMap['Unknown'] > 0) {
       displayData.pandemic = true;
     }
-
     return displayData;
   }
 
   getDataByDistrict(district: string): Observable<DisplayData> {
     this.currentDisplayData = this.convert2DisplayData(this.wholeDataMap[district].confirmed);
     this.currentDisplayData.districtName = district;
+    this.currentDisplayData.deathCount = this.wholeDataMap[district].deaths.length;
+    this.currentDisplayData.recoveredCount = this.wholeDataMap[district].recovered.length;
 
-    // update lastDayInfo
-    this.currentDisplayData.lastDayInfo = new DayInfo;
-    let lastData = this.convert2DisplayData(this.currentDisplayData.dateDetailsMap[this.currentDisplayData.lastDay.date].confirmed);
-    this.currentDisplayData.lastDayInfo.confirmedCount = lastData.confirmedCount;
-    this.currentDisplayData.lastDayInfo.confirmedCountries = lastData.confirmedCountries;
-    this.currentDisplayData.lastDayInfo.date = this.currentDisplayData.lastDay.date;
+    // update dayInfoArray
+    for (let [key, value] of Object.entries(this.currentDisplayData.dateDetailsMap)) {
+      let dayInfo = new DayInfo;
+      let dayWholeData = value as WholeData;
+      let data = this.convert2DisplayData(dayWholeData.confirmed);
+      dayInfo.confirmedCount = data.confirmedCount;
+      dayInfo.confirmedCountries = data.confirmedCountries;
+      dayInfo.date = key;
+      this.currentDisplayData.dayInfoArray.push(dayInfo);
+    }
 
     this.updatedSource.next(district);
     return of(this.currentDisplayData);

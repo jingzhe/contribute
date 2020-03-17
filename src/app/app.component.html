@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header repo-header">
-  <div>芬兰新冠状病毒确诊人数: {{ confirmedNumber }} </div>
+  <div>芬兰COVID-19确诊: {{ confirmedNumber }} 康复: {{ recoveredNumber }} 死亡: {{ deathNumber }}</div>
   <span class="nav-tool-items">
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
@@ -12,20 +12,24 @@
                [fixedTopGap]>
     <mat-nav-list>
 
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Pohjanmaa')">奥卢</button></div>
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('HUS')">赫尔辛基</button></div>
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Lappi')">Lappi</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢)</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('HUS')">HUS(赫尔辛基)</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Lappi')">Lappi(拉普兰)</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kanta-Häme')">Kanta-Häme</button></div>
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pirkanmaa')">Pirkanmaa</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pirkanmaa')">Pirkanmaa(坦佩雷)</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Karjala')">Etelä-Karjala</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Savo')">Pohjois-Savo</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Keski-Suomi')">Keski-Suomi</button></div>
-      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Varsinais-Suomi')">Varsinais-Suomi</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Varsinais-Suomi')">Varsinais-Suomi(图尔库)</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Karjala')">Pohjois-Karjala</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Pohjanmaa')">Etelä-Pohjanmaa</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Satakunta')">Satakunta</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Vaasa')">Vaasa</button></div>
       <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Keski-Pohjanmaa')">Keski-Pohjanmaa</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Päijät-Häme')">Päijät-Häme</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Savo')">Etelä-Savo</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kymenlaakso')">Kymenlaakso</button></div>
+      <div><button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Länsi-Pohja')">Länsi-Pohja</button></div>
 
     </mat-nav-list>
   </mat-sidenav>

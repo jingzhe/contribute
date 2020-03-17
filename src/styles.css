@@ -9,7 +9,7 @@ body{margin:0;font-family:'Roboto', sans-serif;}
 .hamburger{visibility:hidden !important;}
 .mat-sidenav,.mat-sidenav-content{padding:15px;}
 .mat-list-item.active{background:rgba(0, 0, 0, .04);}
-.mat-sidenav-content{margin-top:50px;padding:25px 40px 0;}
+.mat-sidenav-content{padding:25px 40px 40px 40px;}
 .mat-sidenav{background-color:#329232;width:250px;}
 .header{position:sticky;position:-webkit-sticky;top:0;z-index:1000}
 mat-sidenav mat-icon{margin-right:12px;}
@@ -39,3 +39,8 @@ body .push-right{margin-right:10px;}
 @media (max-width:767px){.nav-tool-items{margin-right:0;}
   .hamburger{visibility:visible !important;}
 }
+
+.text-content{
+  padding:25px 40px 40px 40px;
+  color: red
+  }

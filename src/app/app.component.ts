@@ -15,7 +15,9 @@ import { map, startWith } from 'rxjs/operators';
 
 export class AppComponent implements OnInit {
   opened = true;
-  confirmedNumber: number
+  confirmedNumber: number;
+  recoveredNumber: number;
+  deathNumber: number;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
   constructor(
@@ -36,6 +38,8 @@ export class AppComponent implements OnInit {
     this.dataService.getAllStats()
         .subscribe(() => {
           this.confirmedNumber = this.dataService.confirmedNumber;
+          this.recoveredNumber = this.dataService.recoveredNumber;
+          this.deathNumber = this.dataService.deathNumber;
         });
   }
 
