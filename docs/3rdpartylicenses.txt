@@ -97,13 +97,9 @@ THE SOFTWARE.
 
 @angular/material/icon
 
-@angular/material/list
-
 @angular/material/paginator
 
 @angular/material/select
-
-@angular/material/sidenav
 
 @angular/material/table
 

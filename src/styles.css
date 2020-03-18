@@ -29,6 +29,7 @@ table.mat-table,table{width:100%;}
 body .push-right{margin-right:10px;}
 .no-data{text-align:center;padding-top:30px;color:#6c75a9;}
 .contributor{font-size: x-large;text-align:center;padding-top:10px;padding-bottom:15px;color:#ff75a9;}
+.date-text{font-size: large;text-align:center;padding-top:10px;padding-bottom:5px;color:#0000a9;}
 .button-wrapper{margin:20px 0 0 0;}
 @media (max-width:1024px){.inner-wrapper mat-card{width:100%;}
   .mat-sidenav-content{padding:20px 20px 0;}

@@ -27,14 +27,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (window.innerWidth < 768) {
-      this.sidenav.fixedTopGap = 100;
-      this.opened = false;
-    } else {
-      this.sidenav.fixedTopGap = 100;
-      this.opened = true;
-    }
-
     this.dataService.getAllStats()
         .subscribe(() => {
           this.confirmedNumber = this.dataService.confirmedNumber;
@@ -48,25 +40,5 @@ export class AppComponent implements OnInit {
       .subscribe(displayData => {
         this.router.navigate([`/result`]);
       });
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    if (event.target.innerWidth < 768) {
-      this.sidenav.fixedTopGap = 55;
-      this.opened = false;
-    } else {
-      this.sidenav.fixedTopGap = 55
-      this.opened = true;
-    }
-  }
-
-  isBiggerScreen() {
-    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    if (width < 768) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
