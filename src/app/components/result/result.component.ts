@@ -18,14 +18,13 @@ export class ResultComponent implements OnInit {
   displayedColumns: string[] = ['name', 'count'];
 
   constructor(private router: Router, private dataService: DataService) {
-    console.log(this.dataService);
-    console.log(this.dataService.currentDisplayData);
     if (!this.dataService.currentDisplayData) {
       this.router.navigate([`https://jingzhe.github.io/contribute`]);
+    } else {
+      this.dataService.updatedSource.subscribe(name => {
+        this.update();
+      });
     }
-    this.dataService.updatedSource.subscribe(name => {
-      this.update();
-    });
   }
 
   ngOnInit() {
