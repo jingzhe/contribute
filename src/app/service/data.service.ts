@@ -16,6 +16,7 @@ export class DataService {
   confirmedNumber: number;
   recoveredNumber: number;
   deathNumber: number;
+  todayInfo: any = {};
 
   updatedSource = new BehaviorSubject('');
 
@@ -33,6 +34,7 @@ export class DataService {
           this.convertConfirmed2Map(wholeData.confirmed);
           this.convertRecovered2Map(wholeData.recovered);
           this.convertDeaths2Map(wholeData.deaths);
+          this.calculateTodayInfo();
           }),
         catchError(this.errorMgmt)
     );
@@ -41,28 +43,56 @@ export class DataService {
   convertConfirmed2Map(dataArray: PatientData[]) {
     for (let i = 0; i < dataArray.length; i++) {
       let patientData = dataArray[i];
-      if (this.wholeDataMap[patientData.healthCareDistrict] === undefined) {
-        this.wholeDataMap[patientData.healthCareDistrict] = new WholeData;
+      let district = patientData.healthCareDistrict ? patientData.healthCareDistrict : 'Unspecified';
+      if (this.wholeDataMap[district] === undefined) {
+        this.wholeDataMap[district] = new WholeData;
       }
-      this.wholeDataMap[patientData.healthCareDistrict].confirmed.push(patientData);
+      this.wholeDataMap[district].confirmed.push(patientData);
     }
   }
   convertRecovered2Map(dataArray: PatientData[]) {
     for (let i = 0; i < dataArray.length; i++) {
       let patientData = dataArray[i];
-      if (this.wholeDataMap[patientData.healthCareDistrict] === undefined) {
-        this.wholeDataMap[patientData.healthCareDistrict] = new WholeData;
+      let district = patientData.healthCareDistrict ? patientData.healthCareDistrict : 'Unspecified';
+      if (this.wholeDataMap[district] === undefined) {
+        this.wholeDataMap[district] = new WholeData;
       }
-      this.wholeDataMap[patientData.healthCareDistrict].recovered.push(patientData);
+      this.wholeDataMap[district].recovered.push(patientData);
     }
   }
   convertDeaths2Map(dataArray: PatientData[]) {
     for (let i = 0; i < dataArray.length; i++) {
       let patientData = dataArray[i];
-      if (this.wholeDataMap[patientData.healthCareDistrict] === undefined) {
-        this.wholeDataMap[patientData.healthCareDistrict] = new WholeData;
+      let district = patientData.healthCareDistrict ? patientData.healthCareDistrict : 'Unspecified';
+      if (this.wholeDataMap[district] === undefined) {
+        this.wholeDataMap[district] = new WholeData;
       }
-      this.wholeDataMap[patientData.healthCareDistrict].deaths.push(patientData);
+      this.wholeDataMap[district].deaths.push(patientData);
+    }
+  }
+
+  calculateTodayInfo() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    let todayDate = yyyy + '-' + mm + '-' + dd;
+
+    for(let [key]  of Object.entries(this.wholeDataMap)) {
+       this.todayInfo[key] = 0;
+    }
+
+    for (let [key, value] of Object.entries(this.wholeDataMap)) {
+      let wholeData = value as WholeData;
+      for (let i = 0; i < wholeData.confirmed.length; i++) {
+        let patientData = wholeData.confirmed[i];
+
+        // calculate by date
+        let dateString = patientData.date.substring(0, 10);
+        if (todayDate === dateString) {
+          this.todayInfo[key]++;
+        }
+      }
     }
   }
 

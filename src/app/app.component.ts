@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   confirmedNumber: number;
   recoveredNumber: number;
   deathNumber: number;
+  todayInfo: any = {};
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
   constructor(
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
           this.confirmedNumber = this.dataService.confirmedNumber;
           this.recoveredNumber = this.dataService.recoveredNumber;
           this.deathNumber = this.dataService.deathNumber;
+          this.todayInfo = this.dataService.todayInfo;
         });
   }
 

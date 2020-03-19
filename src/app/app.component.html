@@ -4,25 +4,25 @@
 
 </mat-toolbar>
 
-
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢)</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('HUS')">HUS(赫尔辛基)</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Lappi')">Lappi(拉普兰)</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kanta-Häme')">Kanta-Häme</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pirkanmaa')">Pirkanmaa(坦佩雷)</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Karjala')">Etelä-Karjala</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Savo')">Pohjois-Savo</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Keski-Suomi')">Keski-Suomi</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Varsinais-Suomi')">Varsinais-Suomi(图尔库)</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Karjala')">Pohjois-Karjala</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Pohjanmaa')">Etelä-Pohjanmaa</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Satakunta')">Satakunta</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Vaasa')">Vaasa</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Keski-Pohjanmaa')">Keski-Pohjanmaa</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Päijät-Häme')">Päijät-Häme</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Savo')">Etelä-Savo</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kymenlaakso')">Kymenlaakso</button>
-<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Länsi-Pohja')">Länsi-Pohja</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Unspecified')">Unspecified(未知)(+{{todayInfo['Unspecified']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢)(+{{todayInfo['Pohjois-Pohjanmaa']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('HUS')">HUS(赫尔辛基)(+{{todayInfo['HUS']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Lappi')">Lappi(拉普兰)(+{{todayInfo['Lappi']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kanta-Häme')">Kanta-Häme(+{{todayInfo['Kanta-Häme']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pirkanmaa')">Pirkanmaa(坦佩雷)(+{{todayInfo['Pirkanmaa']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Karjala')">Etelä-Karjala(+{{todayInfo['Etelä-Karjala']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Savo')">Pohjois-Savo(+{{todayInfo['Pohjois-Savo']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Keski-Suomi')">Keski-Suomi(+{{todayInfo['Keski-Suomi']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Varsinais-Suomi')">Varsinais-Suomi(图尔库)(+{{todayInfo['Varsinais-Suomi']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Pohjois-Karjala')">Pohjois-Karjala(+{{todayInfo['Pohjois-Karjala']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Pohjanmaa')">Etelä-Pohjanmaa(+{{todayInfo['Etelä-Pohjanmaa']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Satakunta')">Satakunta(+{{todayInfo['Satakunta']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Vaasa')">Vaasa(+{{todayInfo['Vaasa']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Keski-Pohjanmaa')">Keski-Pohjanmaa(+{{todayInfo['Keski-Pohjanmaa']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Päijät-Häme')">Päijät-Häme(+{{todayInfo['Päijät-Häme']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Etelä-Savo')">Etelä-Savo(+{{todayInfo['Etelä-Savo']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Kymenlaakso')">Kymenlaakso(+{{todayInfo['Kymenlaakso']}})</button>
+<button mat-flat-button class="navi-button" color="warn" (click)="onGetData('Länsi-Pohja')">Länsi-Pohja(+{{todayInfo['Länsi-Pohja']}})</button>
 
 
 <router-outlet></router-outlet>

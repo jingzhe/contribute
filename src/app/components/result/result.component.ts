@@ -19,7 +19,7 @@ export class ResultComponent implements OnInit {
 
   constructor(private router: Router, private dataService: DataService) {
     if (!this.dataService.currentDisplayData) {
-      this.router.navigate([`/`]);
+      this.router.navigate([`/contribute`]);
     }
     this.dataService.updatedSource.subscribe(name => {
       this.update();
