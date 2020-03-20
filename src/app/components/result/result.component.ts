@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { WholeData, DisplayData, CountryData } from '../../service/patientdata';
 import { Router } from '@angular/router'
@@ -10,6 +10,8 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
+
+  @ViewChild('start', {static: false}) startRef: ElementRef;
 
   displayData: DisplayData;
   dataSource: MatTableDataSource<CountryData>;
@@ -46,6 +48,9 @@ export class ResultComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     }, 0);
 
+    setTimeout(() => {
+      this.startRef.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }, 10);
   }
 
 }
