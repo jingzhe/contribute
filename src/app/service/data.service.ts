@@ -153,6 +153,17 @@ export class DataService {
   }
 
   getDataByDistrict(district: string): Observable<DisplayData> {
+    if (!this.wholeDataMap[district]) {
+      this.currentDisplayData = new DisplayData;
+      this.currentDisplayData.districtName = district;
+      this.currentDisplayData.confirmedCount = 0;
+      this.currentDisplayData.deathCount = 0;
+      this.currentDisplayData.recoveredCount = 0;
+
+      this.updatedSource.next(district);
+      return of(this.currentDisplayData);
+    }
+
     this.currentDisplayData = this.convert2DisplayData(this.wholeDataMap[district].confirmed);
     this.currentDisplayData.districtName = district;
     this.currentDisplayData.deathCount = this.wholeDataMap[district].deaths.length;

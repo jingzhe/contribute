@@ -1,5 +1,5 @@
 <div class="content-start" #start></div>
-<p  *ngIf="displayData.confirmedCount <= 0" class="no-data">此地没有病例!</p>
+<p  *ngIf="displayData.confirmedCount <= 0" class="contributor">{{displayData.districtName}}没有病例!</p>
 <div *ngIf="displayData.confirmedCount > 0" class="contributor">{{displayData.districtName}} 一共有 {{displayData.confirmedCount}} 个确诊病例. 康复 {{displayData.recoveredCount}}个， 死亡 {{displayData.deathCount}}个</div>
 
 <div class="container" *ngIf="displayData.confirmedCountries.length > 0">

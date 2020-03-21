@@ -43,4 +43,8 @@ export class AppComponent implements OnInit {
         this.router.navigate([`/result`]);
       });
   }
+
+  getTodayNumber(name: string): number {
+    return this.todayInfo[name] || 0;
+  }
 }
