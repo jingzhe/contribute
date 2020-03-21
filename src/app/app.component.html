@@ -1,7 +1,6 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header repo-header">
   <div class="text-title">芬兰COVID-19 [确诊: {{ confirmedNumber }}], [康复:{{ recoveredNumber }}], [死亡: {{ deathNumber }}]</div>
-
 </mat-toolbar>
 
 <button mat-flat-button class="navi-button" [color]="todayInfo['Unspecified'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Unspecified')">Unspecified(未知)(+{{todayInfo['Unspecified']}})</button>
@@ -23,7 +22,7 @@
 <button mat-flat-button class="navi-button" [color]="todayInfo['Etelä-Savo'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Etelä-Savo')">Etelä-Savo(+{{todayInfo['Etelä-Savo']}})</button>
 <button mat-flat-button class="navi-button" [color]="todayInfo['Kymenlaakso'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Kymenlaakso')">Kymenlaakso(+{{todayInfo['Kymenlaakso']}})</button>
 <button mat-flat-button class="navi-button" [color]="todayInfo['Länsi-Pohja'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Länsi-Pohja')">Länsi-Pohja(+{{todayInfo['Länsi-Pohja']}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Ahvenanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Ahvenanmaa')">Länsi-Pohja(+{{todayInfo['Ahvenanmaa']}})</button>
+<button mat-flat-button class="navi-button" [color]="todayInfo['Ahvenanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Ahvenanmaa')">Ahvenanmaa(+{{todayInfo['Ahvenanmaa']}})</button>
 
 
 <router-outlet></router-outlet>
