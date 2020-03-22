@@ -56,5 +56,10 @@ body .push-right{margin-right:10px;}
 }
 
 .text-title{
-font-size: medium
+  font-size: medium
+}
+
+.whole-content {
+  max-width: 1070px;
+  margin: 0 auto;
 }
