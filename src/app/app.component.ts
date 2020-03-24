@@ -7,6 +7,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
+const REFRESH_TIMEOUT = 30 * 60 * 1000;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   recoveredNumber: number;
   deathNumber: number;
   todayInfo: any = {};
+  refreshTimer: number;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
   constructor(
@@ -35,6 +37,13 @@ export class AppComponent implements OnInit {
           this.deathNumber = this.dataService.deathNumber;
           this.todayInfo = this.dataService.todayInfo;
         });
+
+    this.refreshTimer = window.setTimeout(() =>  this.refreshPage(), REFRESH_TIMEOUT);
+  }
+
+  refreshPage() {
+    this.refreshTimer = window.setTimeout(() =>  this.refreshPage(), REFRESH_TIMEOUT);
+    this.router.navigate([`/`]);
   }
 
   onGetData(name: string): void {
