@@ -17,6 +17,7 @@ export class DataService {
   recoveredNumber: number;
   deathNumber: number;
   todayInfo: any = {};
+  generalInfo: any = {};
 
   updatedSource = new BehaviorSubject('');
 
@@ -35,6 +36,7 @@ export class DataService {
           this.convertRecovered2Map(wholeData.recovered);
           this.convertDeaths2Map(wholeData.deaths);
           this.calculateTodayInfo();
+          this.calculateGeneralInfo();
           }),
         catchError(this.errorMgmt)
     );
@@ -95,6 +97,13 @@ export class DataService {
       }
     }
   }
+
+    calculateGeneralInfo() {
+      for (let [key, value] of Object.entries(this.wholeDataMap)) {
+        let wholeData = value as WholeData;
+        this.generalInfo[key] = wholeData.confirmed.length - wholeData.deaths.length - wholeData.recovered.length;
+      }
+    }
 
   convert2DisplayData(dataArray: PatientData[]): DisplayData {
     let displayData = new DisplayData;

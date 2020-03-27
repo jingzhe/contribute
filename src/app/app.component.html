@@ -3,28 +3,28 @@
   <div class="text-title">芬兰COVID-19 [确诊: {{ confirmedNumber }}], [康复:{{ recoveredNumber }}], [死亡: {{ deathNumber }}]</div>
 </mat-toolbar>
 
-<button mat-flat-button class="navi-button" [color]="todayInfo['Unspecified'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Unspecified')">Unspecified(未知)(+{{getTodayNumber('Unspecified')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Pohjois-Pohjanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢)(+{{getTodayNumber('Pohjois-Pohjanmaa')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['HUS'] > 0 ? 'warn' : 'accent'" (click)="onGetData('HUS')">HUS(赫尔辛基)(+{{getTodayNumber('HUS')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Lappi'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Lappi')">Lappi(拉普兰)(+{{getTodayNumber('Lappi')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Kanta-Häme'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Kanta-Häme')">Kanta-Häme(+{{getTodayNumber('Kanta-Häme')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Pirkanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Pirkanmaa')">Pirkanmaa(坦佩雷)(+{{getTodayNumber('Pirkanmaa')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Etelä-Karjala'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Etelä-Karjala')">Etelä-Karjala(+{{getTodayNumber('Etelä-Karjala')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Pohjois-Savo'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Pohjois-Savo')">Pohjois-Savo(+{{getTodayNumber('Pohjois-Savo')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Keski-Suomi'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Keski-Suomi')">Keski-Suomi(+{{getTodayNumber('Keski-Suomi')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Varsinais-Suomi'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Varsinais-Suomi')">Varsinais-Suomi(图尔库)(+{{getTodayNumber('Varsinais-Suomi')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Pohjois-Karjala'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Pohjois-Karjala')">Pohjois-Karjala(+{{getTodayNumber('Pohjois-Karjala')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Etelä-Pohjanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Etelä-Pohjanmaa')">Etelä-Pohjanmaa(+{{getTodayNumber('Etelä-Pohjanmaa')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Satakunta'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Satakunta')">Satakunta(+{{getTodayNumber('Satakunta')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Vaasa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Vaasa')">Vaasa(+{{getTodayNumber('Vaasa')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Keski-Pohjanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Keski-Pohjanmaa')">Keski-Pohjanmaa(+{{getTodayNumber('Keski-Pohjanmaa')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Päijät-Häme'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Päijät-Häme')">Päijät-Häme(+{{getTodayNumber('Päijät-Häme')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Etelä-Savo'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Etelä-Savo')">Etelä-Savo(+{{getTodayNumber('Etelä-Savo')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Kymenlaakso'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Kymenlaakso')">Kymenlaakso(+{{getTodayNumber('Kymenlaakso')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Länsi-Pohja'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Länsi-Pohja')">Länsi-Pohja(+{{getTodayNumber('Länsi-Pohja')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Ahvenanmaa'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Ahvenanmaa')">Ahvenanmaa(+{{getTodayNumber('Ahvenanmaa')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Itä-Savo'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Itä-Savo')">Itä-Savo(+{{getTodayNumber('Itä-Savo')}})</button>
-<button mat-flat-button class="navi-button" [color]="todayInfo['Kainuu'] > 0 ? 'warn' : 'accent'" (click)="onGetData('Kainuu')">Kainuu(+{{getTodayNumber('Kainuu')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Unspecified')" (click)="onGetData('Unspecified')">Unspecified(未知)(+{{getTodayNumber('Unspecified')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Pohjois-Pohjanmaa')" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢)(+{{getTodayNumber('Pohjois-Pohjanmaa')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('HUS')" (click)="onGetData('HUS')">HUS(赫尔辛基)(+{{getTodayNumber('HUS')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Lappi')" (click)="onGetData('Lappi')">Lappi(拉普兰)(+{{getTodayNumber('Lappi')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Kanta-Häme')" (click)="onGetData('Kanta-Häme')">Kanta-Häme(+{{getTodayNumber('Kanta-Häme')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Pirkanmaa')" (click)="onGetData('Pirkanmaa')">Pirkanmaa(坦佩雷)(+{{getTodayNumber('Pirkanmaa')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Etelä-Karjala')" (click)="onGetData('Etelä-Karjala')">Etelä-Karjala(+{{getTodayNumber('Etelä-Karjala')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Pohjois-Savo')" (click)="onGetData('Pohjois-Savo')">Pohjois-Savo(+{{getTodayNumber('Pohjois-Savo')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Keski-Suomi')" (click)="onGetData('Keski-Suomi')">Keski-Suomi(+{{getTodayNumber('Keski-Suomi')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Varsinais-Suomi')" (click)="onGetData('Varsinais-Suomi')">Varsinais-Suomi(图尔库)(+{{getTodayNumber('Varsinais-Suomi')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Pohjois-Karjala')" (click)="onGetData('Pohjois-Karjala')">Pohjois-Karjala(+{{getTodayNumber('Pohjois-Karjala')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Etelä-Pohjanmaa')" (click)="onGetData('Etelä-Pohjanmaa')">Etelä-Pohjanmaa(+{{getTodayNumber('Etelä-Pohjanmaa')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Satakunta')" (click)="onGetData('Satakunta')">Satakunta(+{{getTodayNumber('Satakunta')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Vaasa')" (click)="onGetData('Vaasa')">Vaasa(+{{getTodayNumber('Vaasa')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Keski-Pohjanmaa')" (click)="onGetData('Keski-Pohjanmaa')">Keski-Pohjanmaa(+{{getTodayNumber('Keski-Pohjanmaa')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Päijät-Häme')" (click)="onGetData('Päijät-Häme')">Päijät-Häme(+{{getTodayNumber('Päijät-Häme')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Etelä-Savo')" (click)="onGetData('Etelä-Savo')">Etelä-Savo(+{{getTodayNumber('Etelä-Savo')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Kymenlaakso')" (click)="onGetData('Kymenlaakso')">Kymenlaakso(+{{getTodayNumber('Kymenlaakso')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Länsi-Pohja')" (click)="onGetData('Länsi-Pohja')">Länsi-Pohja(+{{getTodayNumber('Länsi-Pohja')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Ahvenanmaa')" (click)="onGetData('Ahvenanmaa')">Ahvenanmaa(+{{getTodayNumber('Ahvenanmaa')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Itä-Savo')" (click)="onGetData('Itä-Savo')">Itä-Savo(+{{getTodayNumber('Itä-Savo')}})</button>
+<button mat-flat-button class="navi-button" [color]="getDistrictColor('Kainuu')" (click)="onGetData('Kainuu')">Kainuu(+{{getTodayNumber('Kainuu')}})</button>
 
 <router-outlet></router-outlet>
 

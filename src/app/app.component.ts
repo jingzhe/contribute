@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   recoveredNumber: number;
   deathNumber: number;
   todayInfo: any = {};
+  generalInfo: any = {};
   refreshTimer: number;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
           this.recoveredNumber = this.dataService.recoveredNumber;
           this.deathNumber = this.dataService.deathNumber;
           this.todayInfo = this.dataService.todayInfo;
+          this.generalInfo = this.dataService.generalInfo;
         });
 
     this.refreshTimer = window.setTimeout(() =>  this.refreshPage(), REFRESH_TIMEOUT);
@@ -55,5 +57,15 @@ export class AppComponent implements OnInit {
 
   getTodayNumber(name: string): number {
     return this.todayInfo[name] || 0;
+  }
+
+  getDistrictColor(name: string): string {
+    if (this.todayInfo[name] > 0) {
+      return 'warn';
+    } else if (this.generalInfo[name] > 0) {
+      return 'accent';
+    }
+
+    return 'primary';
   }
 }
