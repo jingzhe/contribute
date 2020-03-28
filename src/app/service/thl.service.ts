@@ -10,8 +10,7 @@ import { ThlDistrictData } from './patientdata';
 
 export class ThlService {
 
-  //endpoint = 'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json';
-  endpoint = '/contribute/thl';
+  endpoint = '/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json';
   districtDataArray: ThlDistrictData[] = [];
   districtNameMap = {};
 

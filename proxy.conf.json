@@ -1,11 +1,8 @@
 {
 
-    "contribute/thl": {
-      "target": "https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json",
+    "/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json": {
+      "target": "https://sampo.thl.fi",
       "secure": true,
-      "pathRewrite": {
-        "^/contribute/thl": ""
-       },
       "changeOrigin": true
     }
 }

@@ -3,7 +3,7 @@
   <div class="text-title">芬兰COVID-19 [确诊: {{ confirmedNumber }}], [康复:{{ recoveredNumber }}], [死亡: {{ deathNumber }}]</div>
 </mat-toolbar>
 
-<div class="thl-link"><a href="/contribute/thl">Check THL data (官方数据)</a></div>
+<div class="thl-link"><a href="/thl">Check THL data (官方数据)</a></div>
 
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Unspecified')" (click)="onGetData('Unspecified')">Unspecified(未知){{getTodayNumber('Unspecified')}}</button>
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Pohjois-Pohjanmaa')" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢){{getTodayNumber('Pohjois-Pohjanmaa')}}</button>
