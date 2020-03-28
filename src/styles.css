@@ -63,3 +63,9 @@ body .push-right{margin-right:10px;}
   max-width: 1070px;
   margin: 0 auto;
 }
+
+.thl-link {
+  margin: 15px;
+  padding: 10px;
+  background-color: lightblue;
+}

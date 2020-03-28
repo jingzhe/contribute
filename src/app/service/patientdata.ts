@@ -38,3 +38,8 @@ export class DayInfo {
   confirmedCountries: CountryData[] = [];
   date: string;
 }
+
+export class ThlDistrictData {
+  name: string;
+  count: string;
+}

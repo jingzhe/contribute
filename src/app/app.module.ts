@@ -6,15 +6,17 @@ import { AppComponent } from './app.component';
 import { ResultComponent } from './components/result/result.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
-import {HttpClientModule} from '@angular/common/http';
-import {DataService} from './service/data.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './service/data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { ThlComponent } from './components/thl/thl.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultComponent,
+    ThlComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,5 +3,11 @@
         "target": "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com",
         "secure": true,
         "changeOrigin": true
+    },
+
+    "/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json": {
+      "target": "https://sampo.thl.fi",
+      "secure": true,
+      "changeOrigin": true
     }
 }
