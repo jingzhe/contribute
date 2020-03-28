@@ -55,8 +55,11 @@ export class AppComponent implements OnInit {
       });
   }
 
-  getTodayNumber(name: string): number {
-    return this.todayInfo[name] || 0;
+  getTodayNumber(name: string): string {
+    if (this.todayInfo[name]) {
+      return '(+' + this.todayInfo[name] + ')';
+    }
+    return '';
   }
 
   getDistrictColor(name: string): string {
