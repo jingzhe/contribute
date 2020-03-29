@@ -10,7 +10,7 @@ import { ThlDistrictData } from './patientdata';
 
 export class ThlService {
 
-  endpoint = 'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.dimensions.json';
+  endpoint = 'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json';
   districtDataArray: ThlDistrictData[] = [];
   districtNameMap = {};
 
@@ -41,7 +41,7 @@ export class ThlService {
 
   getDistrictData(): Observable<void> {
       const repoUrl = `${this.endpoint}`;
-      return this.http.get(repoUrl, { responseType: 'json' }).pipe(
+      return this.http.jsonp(repoUrl, 'callback').pipe(
           map((res: Response) => {
           let testData: any = res;
           let valueMap =  testData.dataset.value;
