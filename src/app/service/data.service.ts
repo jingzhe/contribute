@@ -43,34 +43,32 @@ export class DataService {
   }
 
   convertConfirmed2Map(dataArray: PatientData[]) {
-    for (let i = 0; i < dataArray.length; i++) {
-      let patientData = dataArray[i];
+    dataArray.forEach(patientData => {
       let district = patientData.healthCareDistrict ? patientData.healthCareDistrict : 'Unspecified';
       if (this.wholeDataMap[district] === undefined) {
         this.wholeDataMap[district] = new WholeData;
       }
       this.wholeDataMap[district].confirmed.push(patientData);
-    }
+    });
   }
+
   convertRecovered2Map(dataArray: PatientData[]) {
-    for (let i = 0; i < dataArray.length; i++) {
-      let patientData = dataArray[i];
+    dataArray.forEach(patientData => {
       let district = patientData.healthCareDistrict ? patientData.healthCareDistrict : 'Unspecified';
       if (this.wholeDataMap[district] === undefined) {
         this.wholeDataMap[district] = new WholeData;
       }
       this.wholeDataMap[district].recovered.push(patientData);
-    }
+    });
   }
   convertDeaths2Map(dataArray: PatientData[]) {
-    for (let i = 0; i < dataArray.length; i++) {
-      let patientData = dataArray[i];
+    dataArray.forEach(patientData => {
       let district = patientData.healthCareDistrict ? patientData.healthCareDistrict : 'Unspecified';
       if (this.wholeDataMap[district] === undefined) {
         this.wholeDataMap[district] = new WholeData;
       }
       this.wholeDataMap[district].deaths.push(patientData);
-    }
+    });
   }
 
   calculateTodayInfo() {
@@ -86,32 +84,29 @@ export class DataService {
 
     for (let [key, value] of Object.entries(this.wholeDataMap)) {
       let wholeData = value as WholeData;
-      for (let i = 0; i < wholeData.confirmed.length; i++) {
-        let patientData = wholeData.confirmed[i];
-
+      wholeData.confirmed.forEach(patientData => {
         // calculate by date
         let dateString = patientData.date.substring(0, 10);
         if (todayDate === dateString) {
           this.todayInfo[key]++;
         }
-      }
+      });
     }
   }
 
-    calculateGeneralInfo() {
-      for (let [key, value] of Object.entries(this.wholeDataMap)) {
-        let wholeData = value as WholeData;
-        this.generalInfo[key] = wholeData.confirmed.length - wholeData.deaths.length - wholeData.recovered.length;
-      }
+  calculateGeneralInfo() {
+    for (let [key, value] of Object.entries(this.wholeDataMap)) {
+      let wholeData = value as WholeData;
+      this.generalInfo[key] = wholeData.confirmed.length - wholeData.deaths.length - wholeData.recovered.length;
     }
+  }
 
   convert2DisplayData(dataArray: PatientData[]): DisplayData {
     let displayData = new DisplayData;
     let countryMap = {};
     let dateMap = {};
     displayData.confirmedCount = dataArray.length;
-    for (let i = 0; i < dataArray.length; i++) {
-      let patientData = dataArray[i];
+    dataArray.forEach(patientData => {
       let sourceCountry;
       if (patientData.infectionSourceCountry && patientData.infectionSourceCountry.length > 0) {
         sourceCountry = patientData.infectionSourceCountry;
@@ -138,7 +133,7 @@ export class DataService {
         displayData.dateDetailsMap[dateString] = new WholeData;
       }
       displayData.dateDetailsMap[dateString].confirmed.push(patientData);
-    }
+    });
 
     for (let [key, value] of Object.entries(countryMap)) {
       let countryData = new CountryData;

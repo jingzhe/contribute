@@ -10,7 +10,7 @@ import { ThlDistrictData } from './patientdata';
 
 export class ThlService {
 
-  endpoint = 'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.dimensions.json';
+  endpoint = 'https://api.codetabs.com/v1/proxy?quest=https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json';
   districtDataArray: ThlDistrictData[] = [];
   districtNameMap = {};
 
@@ -41,12 +41,11 @@ export class ThlService {
 
   getDistrictData(): Observable<void> {
       const repoUrl = `${this.endpoint}`;
-      return this.http.jsonp(repoUrl, 'callback').pipe(
+      return this.http.get(repoUrl).pipe(
           map((res: Response) => {
-          console.log(res);
-	  //let testData: any = res;
-          //let valueMap =  testData.dataset.value;
-          //this.parseValueMap(valueMap);
+          let testData: any = res;
+          let valueMap =  testData.dataset.value;
+          this.parseValueMap(valueMap);
           }),
         catchError(this.errorMgmt)
     );
@@ -59,9 +58,7 @@ export class ThlService {
        districtData.count = valueMap[value as string];
        this.districtDataArray.push(districtData);
     }
-
   }
-
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
