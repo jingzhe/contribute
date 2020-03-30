@@ -69,3 +69,8 @@ body .push-right{margin-right:10px;}
   padding: 10px;
   background-color: lightblue;
 }
+
+.thl-button {
+  background-color: green;
+  color: white;
+}

@@ -48,6 +48,10 @@ export class AppComponent implements OnInit {
     this.router.navigate([`/`]);
   }
 
+  onClickThl() {
+    this.router.navigate([`/thl`]);
+  }
+
   onGetData(name: string): void {
     this.dataService.getDataByDistrict(name)
       .subscribe(displayData => {

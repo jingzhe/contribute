@@ -10,7 +10,7 @@ import { ThlDistrictData } from './patientdata';
 
 export class ThlService {
 
-  endpoint = 'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json';
+  endpoint = 'https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.dimensions.json';
   districtDataArray: ThlDistrictData[] = [];
   districtNameMap = {};
 
@@ -43,9 +43,10 @@ export class ThlService {
       const repoUrl = `${this.endpoint}`;
       return this.http.jsonp(repoUrl, 'callback').pipe(
           map((res: Response) => {
-          let testData: any = res;
-          let valueMap =  testData.dataset.value;
-          this.parseValueMap(valueMap);
+          console.log(res);
+	  //let testData: any = res;
+          //let valueMap =  testData.dataset.value;
+          //this.parseValueMap(valueMap);
           }),
         catchError(this.errorMgmt)
     );
