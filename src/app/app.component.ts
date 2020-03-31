@@ -2,6 +2,7 @@ import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DataService } from './service/data.service';
+import { ThlService } from './service/thl.service';
 import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Observable } from 'rxjs';
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
+    private thlService: ThlService,
     private spinnerService: Ng4LoadingSpinnerService,
     private router: Router) {
   }
@@ -49,7 +51,10 @@ export class AppComponent implements OnInit {
   }
 
   onClickThl() {
-    this.router.navigate([`/thl`]);
+    this.thlService.getDistrictData()
+      .subscribe(() => {
+        this.router.navigate([`/thl`]);
+      })
   }
 
   onGetData(name: string): void {

@@ -18,21 +18,25 @@ export class ThlComponent implements OnInit {
 
 
   constructor(private thlService: ThlService,) {
-
+      this.thlService.updatedSource.subscribe(status => {
+        if (status) {
+          this.update();
+        }
+      });
   }
 
   ngOnInit() {
-    this.thlService.getDistrictData()
-        .subscribe(() => {
-          this.dataSource = new MatTableDataSource<ThlDistrictData>(this.thlService.districtDataArray);
-          setTimeout(() => {
-                this.dataSource.paginator = this.paginator;
-              }, 0);
-
-          setTimeout(() => {
-            this.startRef.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'});
-              }, 10);
-        })
+    this.update()
   }
 
+  update() {
+    this.dataSource = new MatTableDataSource<ThlDistrictData>(this.thlService.districtDataArray);
+    setTimeout(() => {
+          this.dataSource.paginator = this.paginator;
+        }, 0);
+
+    setTimeout(() => {
+      this.startRef.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 10);
+  }
 }

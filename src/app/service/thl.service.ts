@@ -13,6 +13,7 @@ export class ThlService {
   endpoint = 'https://api.codetabs.com/v1/proxy?quest=https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.json';
   districtDataArray: ThlDistrictData[] = [];
   districtNameMap = {};
+  updatedSource = new BehaviorSubject('');
 
   constructor(private http: HttpClient) {
     this.districtNameMap['Whole Finland'] = '1187';
@@ -46,6 +47,7 @@ export class ThlService {
           let testData: any = res;
           let valueMap =  testData.dataset.value;
           this.parseValueMap(valueMap);
+          this.updatedSource.next('done');
           }),
         catchError(this.errorMgmt)
     );
