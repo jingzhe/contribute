@@ -26,7 +26,12 @@ export class ThlComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.update()
+    if (this.thlService.districtDataArray.length === 0) {
+      this.thlService.getDistrictData()
+        .subscribe(() => this.update())
+    } else {
+      this.update()
+    }
   }
 
   update() {
