@@ -10,7 +10,8 @@ import { WholeData, PatientData, DisplayData, CountryData, DayData, DayInfo } fr
 
 export class DataService {
 
-  endpoint = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData';
+  //endpoint = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData';
+  endpoint = 'https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2';
   wholeDataMap: any = {};
   currentDisplayData: DisplayData = null;
   confirmedNumber: number;
