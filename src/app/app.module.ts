@@ -11,12 +11,14 @@ import { DataService } from './service/data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { ThlComponent } from './components/thl/thl.component';
+import { HospitalComponent } from './components/hospital/hospital.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultComponent,
     ThlComponent,
+    HospitalComponent,
   ],
   imports: [
     BrowserModule,

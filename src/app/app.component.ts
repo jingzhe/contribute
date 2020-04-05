@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DataService } from './service/data.service';
 import { ThlService } from './service/thl.service';
+import { HospitalService } from './service/hospital.service';
 import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Observable } from 'rxjs';
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private thlService: ThlService,
+    private hospitalService: HospitalService,
     private spinnerService: Ng4LoadingSpinnerService,
     private router: Router) {
   }
@@ -54,6 +56,13 @@ export class AppComponent implements OnInit {
     this.thlService.getDistrictData()
       .subscribe(() => {
         this.router.navigate([`/thl`]);
+      })
+  }
+
+  onClickHospital() {
+    this.hospitalService.getHospitalData()
+      .subscribe(() => {
+        this.router.navigate([`/hospital`]);
       })
   }
 

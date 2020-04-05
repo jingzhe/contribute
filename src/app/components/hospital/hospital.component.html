@@ -1,0 +1,34 @@
+<div class="contributor" #start>hospitalised information</div>
+
+<div class="mat-elevation-z8">
+  <div *ngFor="let daySource of dayDataSourceArray; let i = index">
+    <div class="date-text"><p>{{dateList[i]}}</p></div>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="daySource">
+        <ng-container matColumnDef="area">
+          <th mat-header-cell *matHeaderCellDef> 地区 </th>
+          <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+        </ng-container>
+        <ng-container matColumnDef="inHospital">
+          <th mat-header-cell *matHeaderCellDef> 住院</th>
+          <td mat-cell *matCellDef="let element"> {{element.inHospital}} </td>
+        </ng-container>
+        <ng-container matColumnDef="inWard">
+          <th mat-header-cell *matHeaderCellDef> 普通病房</th>
+          <td mat-cell *matCellDef="let element"> {{element.inWard}} </td>
+        </ng-container>
+        <ng-container matColumnDef="inIcu">
+          <th mat-header-cell *matHeaderCellDef> 重症监护</th>
+          <td mat-cell *matCellDef="let element"> {{element.inIcu}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dead">
+          <th mat-header-cell *matHeaderCellDef> 死亡</th>
+          <td mat-cell *matCellDef="let element"> {{element.dead}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -43,3 +43,20 @@ export class ThlDistrictData {
   name: string;
   count: string;
 }
+
+export class HospitalData {
+  area: string;
+  inHospital: number;
+  inWard: number;
+  inIcu: number;
+  dead: number;
+}
+
+export class HospitalRawData {
+  date: string;
+  area: string;
+  totalHospitalised: number;
+  inWard: number;
+  inIcu: number;
+  dead: number;
+}
