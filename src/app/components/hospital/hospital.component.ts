@@ -37,7 +37,6 @@ export class HospitalComponent implements OnInit {
   update() {
     this.dayDataSourceArray = [];
     this.dayDataMap = this.hospitalService.dayDataMap;
-    this.dayDataSourceArray = [];
     this.dateList = Object.keys(this.dayDataMap).reverse();
 
     for (let [key, value] of Object.entries(this.dayDataMap)) {

@@ -41,6 +41,7 @@ export class ThlService {
   }
 
   getDistrictData(): Observable<void> {
+      this.districtDataArray = [];
       const repoUrl = `${this.endpoint}`;
       return this.http.get(repoUrl).pipe(
           map((res: Response) => {
