@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { HospitalRawData, HospitalData,  } from './patientdata';
+import { HospitalRawData, HospitalData } from './patientdata';
 
 @Injectable({
     providedIn: 'root'

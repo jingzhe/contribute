@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { WholeData, PatientData, DisplayData, CountryData, DayData, DayInfo } from './patientdata';
+import { SnapService } from './snap.service';
 
 @Injectable({
     providedIn: 'root'
@@ -19,12 +20,22 @@ export class DataService {
   deathNumber: number;
   todayInfo: any = {};
   generalInfo: any = {};
+  allSnapshot: number = 0;
 
   updatedSource = new BehaviorSubject('');
 
-  constructor(private http: HttpClient) { }
+  constructor(private snapService: SnapService, private http: HttpClient) { }
 
   getAllStats(): Observable<void> {
+      return this.snapService.getSnapData().pipe(
+          mergeMap(snapMap => {
+            return this.getAllDataStats(snapMap);
+          }),
+        catchError(this.errorMgmt)
+      );
+  }
+
+  getAllDataStats(snapMap): Observable<void> {
       const repoUrl = `${this.endpoint}`;
       return this.http.get(repoUrl).pipe(
           map((res: Response) => {
@@ -36,11 +47,9 @@ export class DataService {
           this.convertConfirmed2Map(wholeData.confirmed);
           this.convertRecovered2Map(wholeData.recovered);
           this.convertDeaths2Map(wholeData.deaths);
-          this.calculateTodayInfo();
+          this.calculateTodayInfo(snapMap);
           this.calculateGeneralInfo();
-          }),
-        catchError(this.errorMgmt)
-    );
+          }));
   }
 
   convertConfirmed2Map(dataArray: PatientData[]) {
@@ -72,7 +81,7 @@ export class DataService {
     });
   }
 
-  calculateTodayInfo() {
+  calculateTodayInfo(snapMap) {
     let today = new Date();
     today.setDate(today.getDate() - 1);
     let dd = String(today.getDate()).padStart(2, '0');
@@ -80,20 +89,12 @@ export class DataService {
     let yyyy = today.getFullYear();
     let todayDate = yyyy + '-' + mm + '-' + dd;
 
-    for(let [key]  of Object.entries(this.wholeDataMap)) {
-       this.todayInfo[key] = 0;
-    }
-
     for (let [key, value] of Object.entries(this.wholeDataMap)) {
       let wholeData = value as WholeData;
-      wholeData.confirmed.forEach(patientData => {
-        // calculate by date
-        let dateString = patientData.date.substring(0, 10);
-        if (todayDate === dateString) {
-          this.todayInfo[key]++;
-        }
-      });
+      this.todayInfo[key] = wholeData.confirmed.length - snapMap[key]
     }
+
+    this.allSnapshot = snapMap['All'];
   }
 
   calculateGeneralInfo() {

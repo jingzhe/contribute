@@ -80,6 +80,14 @@ export class AppComponent implements OnInit {
     return '';
   }
 
+  getTotalTodayNumber(): string {
+    const todayAll = this.confirmedNumber - this.dataService.allSnapshot;
+    if (todayAll > 0) {
+      return '(+' + todayAll + ')';
+    }
+    return '';
+  }
+
   getDistrictColor(name: string): string {
     if (this.todayInfo[name] > 0) {
       return 'warn';
