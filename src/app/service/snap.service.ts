@@ -11,7 +11,8 @@ import { HospitalRawData, HospitalData,  } from './patientdata';
 export class SnapService {
 
   //endpoint = 'http://localhost:8080/snapshot';
-  endpoint = 'https://hidden-basin-27129.herokuapp.com/snapshot'
+  //endpoint = 'https://hidden-basin-27129.herokuapp.com/snapshot'
+  endpoint = 'http://ec2-3-17-73-27.us-east-2.compute.amazonaws.com:8080/snapshot';
   updatedSource = new BehaviorSubject('');
 
   constructor(private http: HttpClient) {
