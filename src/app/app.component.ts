@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   todayInfo: any = {};
   generalInfo: any = {};
   refreshTimer: number;
+  counter: number;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
   constructor(
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
           this.deathNumber = this.dataService.deathNumber;
           this.todayInfo = this.dataService.todayInfo;
           this.generalInfo = this.dataService.generalInfo;
+          this.counter = this.dataService.counter;
         });
 
     this.refreshTimer = window.setTimeout(() =>  this.refreshPage(), REFRESH_TIMEOUT);

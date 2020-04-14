@@ -4,6 +4,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { WholeData, PatientData, DisplayData, CountryData, DayData, DayInfo } from './patientdata';
 import { SnapService } from './snap.service';
+import { CounterService } from './counter.service';
 
 @Injectable({
     providedIn: 'root'
@@ -21,10 +22,14 @@ export class DataService {
   todayInfo: any = {};
   generalInfo: any = {};
   allSnapshot: number = 0;
+  counter = 0;
 
   updatedSource = new BehaviorSubject('');
 
-  constructor(private snapService: SnapService, private http: HttpClient) { }
+  constructor(private snapService: SnapService,
+    private counterService: CounterService,
+    private http: HttpClient) {
+  }
 
   getAllStats(): Observable<void> {
       return this.snapService.getSnapData().pipe(
@@ -32,6 +37,13 @@ export class DataService {
             return this.getAllDataStats(snapMap);
           }),
         catchError(this.errorMgmt)
+      ).pipe(
+          mergeMap(() => {
+            return this.counterService.getCounter().pipe(
+              map(c => {
+                this.counter = c;
+              }));
+          })
       );
   }
 

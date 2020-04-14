@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,17 +7,16 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 
-export class SnapService {
+export class CounterService {
 
-  //endpoint = 'http://localhost:8080/snapshot';
-  endpoint = 'https://hidden-basin-27129.herokuapp.com/snapshot'
-  //endpoint = 'http://ec2-3-17-73-27.us-east-2.compute.amazonaws.com:8080/snapshot';
+  //endpoint = 'http://localhost:8080/counter';
+  endpoint = 'https://hidden-basin-27129.herokuapp.com/counter'
   updatedSource = new BehaviorSubject('');
 
   constructor(private http: HttpClient) {
   }
 
-  getSnapData(): Observable<any> {
+  getCounter(): Observable<any> {
       const repoUrl = `${this.endpoint}`;
       return this.http.get(repoUrl).pipe(
           map((res: Response) => {
