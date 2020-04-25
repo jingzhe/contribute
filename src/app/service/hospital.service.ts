@@ -33,7 +33,7 @@ export class HospitalService {
 
   parseHospitalData(dataArray: any) {
     dataArray.forEach (rawData => {
-      let date = rawData.date.substring(0, 10);
+      let date = rawData.date.substring(0, 16);
       let hospitalData = new HospitalData();
       hospitalData.area = rawData.area;
       hospitalData.inHospital = rawData.totalHospitalised;
