@@ -60,3 +60,9 @@ export class HospitalRawData {
   inIcu: number;
   dead: number;
 }
+export class FeedbackData {
+  name: string;
+  subject: string;
+  content: string;
+}
+

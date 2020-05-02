@@ -1,0 +1,43 @@
+<div class="contributor" #start>Please give your feedback</div>
+<div>
+  <label>Name(optional):</label>
+  <input id="name" [(ngModel)]="name">
+</div>
+<div>
+  <label>Subject(mandatory):</label>
+  <input id="subject" [(ngModel)]="subject">
+</div>
+<div>
+  <label>Content(mandatory):</label>
+  <input id="content" [(ngModel)]="content">
+</div>
+<button class="button" (click)="onSubmitFeedback()">Submit</button>
+<hr>
+
+<div *ngFor="let feedback of feedbackArray; let i = index">
+  <div>
+    <div class="feedback-title">
+      Name:
+    </div>
+    <div class="feedback-text">
+      {{feedback.name}}
+    </div>
+  </div>
+  <div>
+    <div class="feedback-title">
+      Subject:
+    </div>
+    <div class="feedback-text">
+      {{feedback.subject}}
+    </div>
+  </div>
+  <div>
+    <div class="feedback-title">
+      Content:
+    </div>
+    <div class="feedback-text">
+      {{feedback.content}}
+    </div>
+  </div>
+  <hr>
+</div>

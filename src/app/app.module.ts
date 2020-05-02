@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { ThlComponent } from './components/thl/thl.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HospitalComponent } from './components/hospital/hospital.component';
     ResultComponent,
     ThlComponent,
     HospitalComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

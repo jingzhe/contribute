@@ -9,6 +9,9 @@
 <div class="thl-link">
   <button mat-flat-button class="thl-button" (click)="onClickHospital()">Check hospitalised data(住院信息)</button>
 </div>
+<div class="thl-link">
+  <button mat-flat-button class="thl-button" (click)="onClickFeedback()">Give the feedback</button>
+</div>
 
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Unspecified')" (click)="onGetData('Unspecified')">Unspecified(未知){{getTodayNumber('Unspecified')}}</button>
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Pohjois-Pohjanmaa')" (click)="onGetData('Pohjois-Pohjanmaa')">Pohjois-Pohjanmaa(奥卢){{getTodayNumber('Pohjois-Pohjanmaa')}}</button>

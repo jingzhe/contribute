@@ -4,6 +4,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { DataService } from './service/data.service';
 import { ThlService } from './service/thl.service';
 import { HospitalService } from './service/hospital.service';
+import { FeedbackService } from './service/feedback.service';
 import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Observable } from 'rxjs';
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
     private thlService: ThlService,
     private hospitalService: HospitalService,
     private spinnerService: Ng4LoadingSpinnerService,
+    private feedbackService: FeedbackService,
     private router: Router) {
   }
 
@@ -65,6 +67,13 @@ export class AppComponent implements OnInit {
     this.hospitalService.getHospitalData()
       .subscribe(() => {
         this.router.navigate([`/hospital`]);
+      })
+  }
+
+  onClickFeedback() {
+    this.feedbackService.getFeedback()
+      .subscribe(() => {
+        this.router.navigate([`/feedback`]);
       })
   }
 
