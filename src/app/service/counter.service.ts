@@ -18,7 +18,11 @@ export class CounterService {
 
   getCounter(): Observable<any> {
       const repoUrl = `${this.endpoint}`;
-      return this.http.get(repoUrl).pipe(
+      const headers = {
+        'Cache-Control': 'no-cache',
+        Pragma: 'no-cache'
+      };
+      return this.http.get(repoUrl, { headers }).pipe(
           map((res: Response) => {
           return res;
           }));

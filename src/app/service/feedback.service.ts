@@ -16,13 +16,18 @@ export class FeedbackService {
   addEndpoint = 'https://hidden-basin-27129.herokuapp.com/add-feedback';
   updatedSource = new BehaviorSubject('');
   feedbackArray: FeedbackData[] = [];
+  headers = {
+    'Cache-Control': 'no-cache',
+    Pragma: 'no-cache'
+  };
 
   constructor(private http: HttpClient) {
   }
 
   getFeedback(): Observable<void> {
     const repoUrl = `${this.feedbackEndpoint}`;
-    return this.http.get(repoUrl).pipe(
+
+    return this.http.get(repoUrl, { headers: this.headers }).pipe(
         map((res: any) => {
           this.feedbackArray = res as FeedbackData[];
         }));
@@ -40,7 +45,7 @@ export class FeedbackService {
       content
     }
 
-    return this.http.post(repoUrl, payload).pipe(
+    return this.http.post(repoUrl, payload, { headers: this.headers }).pipe(
         map((res: any) => {
           this.feedbackArray = res as FeedbackData[];
         }));
