@@ -20,6 +20,10 @@ export class ResultComponent implements OnInit {
   displayedColumns: string[] = ['name', 'count'];
 
   constructor(private router: Router, private dataService: DataService) {
+
+  }
+
+  ngOnInit() {
     if (!this.dataService.currentDisplayData) {
       this.router.navigate(['../']);
     } else {
@@ -27,10 +31,6 @@ export class ResultComponent implements OnInit {
         this.update();
       });
     }
-  }
-
-  ngOnInit() {
-
   }
 
   update() {
