@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.spinnerService.show();
     this.dataService.getAllStats()
         .subscribe(() => {
           this.confirmedNumber = this.dataService.confirmedNumber;
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
           this.todayInfo = this.dataService.todayInfo;
           this.generalInfo = this.dataService.generalInfo;
           this.counter = this.dataService.counter;
+          this.spinnerService.hide();
         });
 
     this.refreshTimer = window.setTimeout(() =>  this.refreshPage(), REFRESH_TIMEOUT);
@@ -64,22 +66,28 @@ export class AppComponent implements OnInit {
   }
 
   onClickHospital() {
+    this.spinnerService.show();
     this.hospitalService.getHospitalData()
       .subscribe(() => {
+        this.spinnerService.hide();
         this.router.navigate([`/hospital`]);
       })
   }
 
   onClickFeedback() {
+    this.spinnerService.show();
     this.feedbackService.getFeedback()
       .subscribe(() => {
+        this.spinnerService.hide();
         this.router.navigate([`/feedback`]);
       })
   }
 
   onGetData(name: string): void {
+    this.spinnerService.show();
     this.dataService.getDataByDistrict(name)
       .subscribe(displayData => {
+        this.spinnerService.hide();
         this.router.navigate([`/result`]);
       });
   }
