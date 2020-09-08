@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
 
   getTodayNumber(name: string): string {
     if (this.todayInfo[name]) {
-      return '(+' + this.todayInfo[name] + ')';
+      return this.todayInfo[name] > 0 ? '(+' + this.todayInfo[name] + ')' : '(' + this.todayInfo[name] + ')';
     }
     return '';
   }
@@ -110,6 +110,8 @@ export class AppComponent implements OnInit {
   getDistrictColor(name: string): string {
     if (this.todayInfo[name] > 0) {
       return 'warn';
+    } else if(this.todayInfo[name] < 0) {
+      return 'primary';
     } else if (this.generalInfo[name] > 0) {
       return 'accent';
     }

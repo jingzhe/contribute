@@ -1,1 +1,7 @@
+clean docs folder
+
 ng build --prod --output-path docs --base-href https://jingzhe.github.io/contribute/ 
+
+copy docs/index.html -> docs/404.html
+
+start to commit
