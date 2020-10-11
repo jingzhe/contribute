@@ -1,0 +1,30 @@
+.repo-input{width: 300px}
+.repo-option{width: 300px}
+.repo-header{height: 60px}
+.navi-button{margin: 5px}
+
+label {
+  display: inline-block;
+  width: 10em;
+  margin: .5em;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+  width:10em;
+  margin: 0.5em
+}
+
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #008E00;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+

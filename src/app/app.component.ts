@@ -83,6 +83,11 @@ export class AppComponent implements OnInit {
       })
   }
 
+  onClickPrevious() {
+    this.router.navigate([`/previous`]);
+  }
+
+
   onGetData(name: string): void {
     this.spinnerService.show();
     this.dataService.getDataByDistrict(name)

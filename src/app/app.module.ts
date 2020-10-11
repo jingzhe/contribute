@@ -14,6 +14,7 @@ import { ThlComponent } from './components/thl/thl.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { NoCacheHeadersInterceptor } from './no-cache-headers-interceptor';
+import { PreviousComponent } from './components/previous/previous.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NoCacheHeadersInterceptor } from './no-cache-headers-interceptor';
     ThlComponent,
     HospitalComponent,
     FeedbackComponent,
+    PreviousComponent,
   ],
   imports: [
     BrowserModule,

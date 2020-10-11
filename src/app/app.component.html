@@ -11,6 +11,9 @@
   <button mat-flat-button class="thl-button" (click)="onClickHospital()">Check hospitalised data(住院信息)</button>
 </div>
 <div class="thl-link">
+  <button mat-flat-button class="previous-button" (click)="onClickPrevious()">Check previous date (NEW)</button>
+</div>
+<div class="thl-link">
   <button mat-flat-button class="thl-button" (click)="onClickFeedback()">Give the feedback</button>
 </div>
 
@@ -35,6 +38,9 @@
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Ahvenanmaa')" (click)="onGetData('Ahvenanmaa')">Ahvenanmaa{{getTodayNumber('Ahvenanmaa')}}</button>
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Itä-Savo')" (click)="onGetData('Itä-Savo')">Itä-Savo{{getTodayNumber('Itä-Savo')}}</button>
 <button mat-flat-button class="navi-button" [color]="getDistrictColor('Kainuu')" (click)="onGetData('Kainuu')">Kainuu{{getTodayNumber('Kainuu')}}</button>
+
+<hr>
+<hr>
 
 <router-outlet></router-outlet>
 
