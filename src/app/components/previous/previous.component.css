@@ -5,7 +5,7 @@
 
 label {
   display: inline-block;
-  width: 10em;
+  width: 4em;
   margin: .5em;
   color: #607D8B;
   font-weight: bold;
@@ -15,11 +15,11 @@ input {
   font-size: 1em;
   padding-left: .4em;
   width:10em;
-  margin: 0.5em
+  margin:
 }
 
 button {
-  margin-top: 20px;
+  margin: 0.5em;
   font-family: Arial;
   background-color: #008E00;
   border: none;
