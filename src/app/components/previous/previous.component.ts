@@ -23,6 +23,10 @@ export class PreviousComponent implements OnInit {
   }
 
   onGetData(): void {
+    if (!this.date) {
+      return;
+    }
+    
     this.spinnerService.show();
     this.previousService.getPreviousSnapData(this.date)
       .subscribe(previousInfo => {
