@@ -16,28 +16,28 @@ export class ThlService {
   updatedSource = new BehaviorSubject('');
 
   constructor(private http: HttpClient) {
-    this.districtNameMap['Whole Finland'] = '1187';
-    this.districtNameMap['Oulu'] = '917';
-    this.districtNameMap['Helsinki'] = '1133';
-    this.districtNameMap['Pirkanmaa'] = '269';
-    this.districtNameMap['Lappi'] = '1079';
-    this.districtNameMap['Southwest'] = '107';
-    this.districtNameMap['Central Finland'] = '701';
-    this.districtNameMap['Åland'] = '53';
-    this.districtNameMap['Satakunta'] = '161';
-    this.districtNameMap['Kanta-Häme'] = '215';
-    this.districtNameMap['Päijät-Häme'] = '323';
-    this.districtNameMap['Kymenlaakso'] = '377';
-    this.districtNameMap['South Karelia'] = '431';
-    this.districtNameMap['South Savo'] = '485';
-    this.districtNameMap['Itä-Savo'] = '539';
-    this.districtNameMap['North Karelia'] = '593';
-    this.districtNameMap['North Savo'] = '647';
-    this.districtNameMap['South Ostrobothnia'] = '755';
-    this.districtNameMap['Vaasa'] = '809';
-    this.districtNameMap['Central Ostrobothnia'] = '863';
-    this.districtNameMap['Kainuu'] = '971';
-    this.districtNameMap['Länsi-Pohja'] = '1025';
+    this.districtNameMap['Whole Finland'] = '2331';
+    this.districtNameMap['Oulu'] = '1801';
+    this.districtNameMap['Helsinki'] = '2225';
+    this.districtNameMap['Pirkanmaa'] = '529';
+    this.districtNameMap['Lappi'] = '2119';
+    this.districtNameMap['Southwest'] = '211';
+    this.districtNameMap['Central Finland'] = '1377';
+    this.districtNameMap['Åland'] = '105';
+    this.districtNameMap['Satakunta'] = '317';
+    this.districtNameMap['Kanta-Häme'] = '423';
+    this.districtNameMap['Päijät-Häme'] = '635';
+    this.districtNameMap['Kymenlaakso'] = '741';
+    this.districtNameMap['South Karelia'] = '847';
+    this.districtNameMap['South Savo'] = '953';
+    this.districtNameMap['Itä-Savo'] = '119';
+    this.districtNameMap['North Karelia'] = '1165';
+    this.districtNameMap['North Savo'] = '1271';
+    this.districtNameMap['South Ostrobothnia'] = '1483';
+    this.districtNameMap['Vaasa'] = '1589';
+    this.districtNameMap['Central Ostrobothnia'] = '1695';
+    this.districtNameMap['Kainuu'] = '1907';
+    this.districtNameMap['Länsi-Pohja'] = '2013';
   }
 
   getDistrictData(): Observable<void> {
